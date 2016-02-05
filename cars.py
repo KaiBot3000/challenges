@@ -9,14 +9,14 @@ def shortestDetour(points):
     detour distances the drivers would need to take to pick-up and drop-off the other driver.
     """
 
-    trip_a_start, trip_a_stop, trip_b_start, trip_b_stop = points
+    a_start, a_stop, b_start, b_stop = points
 
-    a_trip = [trip_a_start, trip_a_stop]
-    a_drops = [trip_a_start, trip_b_start, trip_b_stop, trip_a_stop]
+    a_trip = [a_start, a_stop]
+    a_drops = [a_start, b_start, b_stop, a_stop]
     a_detour = totalDistance(a_drops) - totalDistance(a_trip)
 
-    b_trip = [trip_b_start, trip_b_stop]
-    b_drops = [trip_b_start, trip_a_start, trip_a_stop, trip_b_stop]
+    b_trip = [b_start, b_stop]
+    b_drops = [b_start, a_start, a_stop, b_stop]
     b_detour = totalDistance(b_drops) - totalDistance(b_trip)
 
     shortest = min(a_detour, b_detour)
