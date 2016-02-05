@@ -10,26 +10,18 @@ def shortestDetour(points):
     """
 
     trip_a_start, trip_a_stop, trip_b_start, trip_b_stop = points
-    # print trip_a_start, trip_a_stop, trip_b_start, trip_b_stop
+
     a_trip = [trip_a_start, trip_a_stop]
-    print "atrip", a_trip
     a_drops = [trip_a_start, trip_b_start, trip_b_stop, trip_a_stop]
-    print "adrops", a_drops
     a_detour = totalDistance(a_drops) - totalDistance(a_trip)
-    print "adetour", a_detour
 
     b_trip = [trip_b_start, trip_b_stop]
     b_drops = [trip_b_start, trip_a_start, trip_a_stop, trip_b_stop]
     b_detour = totalDistance(b_drops) - totalDistance(b_trip)
-    print "btrip", b_trip
-    print "bdrop", b_drops
-    print "bdetour", b_detour
 
-    
     shortest = min(a_detour, b_detour)
 
     return shortest
-
 
 
 def totalDistance(route):
@@ -46,6 +38,3 @@ def totalDistance(route):
         start = point
 
     return distance
-
-# print shortestDetour([(1,1), (1,4), (1,2), (1,3)])
-print totalDistance([(0,0), (3, 4)])
